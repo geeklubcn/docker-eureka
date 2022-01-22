@@ -36,3 +36,7 @@ docker build -t geenlubcn/eureka:v1 .
 ```shell
 docker-compose up
 ```
+
+## 其他
+
+- https://cloud.spring.io/spring-cloud-netflix/reference/html/#spring-cloud-eureka-server

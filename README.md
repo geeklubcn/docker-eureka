@@ -1,5 +1,9 @@
 # eureka
 
+- Java: 8
+- SpringBoot: 2.6.3
+- SpringCloud: 2021.0.0
+
 ## 构造镜像
 
 构造jar包

@@ -7,7 +7,10 @@ services:
       - "8001:8001"
     environment:
       SERVER_PORT: 8001
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-1:8001/eureka/,http://eureka-2:8002/eureka/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-2:8002/eureka/,http://eureka-3:8003/eureka/
+      EUREKA_CLIENT_REGISTERWITHEUREKA: "true"
+      EUREKA_CLIENT_FETCHREGISTRY: "true"
+      EUREKA_instance_hostname: eureka-1
   eureka-2:
     build: .
     restart: always
@@ -15,4 +18,18 @@ services:
       - "8002:8002"
     environment:
       SERVER_PORT: 8002
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-1:8001/eureka/,http://eureka-3:8003/eureka/
+      EUREKA_CLIENT_REGISTERWITHEUREKA: "true"
+      EUREKA_CLIENT_FETCHREGISTRY: "true"
+      EUREKA_instance_hostname: eureka-2
+  eureka-3:
+    build: .
+    restart: always
+    ports:
+      - "8003:8003"
+    environment:
+      SERVER_PORT: 8003
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-1:8001/eureka/,http://eureka-2:8002/eureka/
+      EUREKA_CLIENT_REGISTERWITHEUREKA: "true"
+      EUREKA_CLIENT_FETCHREGISTRY: "true"
+      EUREKA_instance_hostname: eureka-3
